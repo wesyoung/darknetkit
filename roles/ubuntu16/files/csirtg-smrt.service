@@ -1,0 +1,17 @@
+[Unit]
+Description=csirtg-ufw service
+
+[Service]
+Type=simple
+User={{ app_user }}
+Group={{ app_user }}
+PIDFile=/run/csirtg-ufw.pid
+ExecStart=ZYRE_GROUP={{ zyre_group }} /usr/local/bin/csirtg-ufw --client zyre -d
+KillMode=process
+Restart=on-failure
+KillSignal=SIGINT
+TimeoutStopSec=5
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

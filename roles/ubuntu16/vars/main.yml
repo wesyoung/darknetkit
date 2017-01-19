@@ -1,0 +1,5 @@
+---
+# vars file for ubuntu16
+
+app_user: darknet
+zyre_group: darknet

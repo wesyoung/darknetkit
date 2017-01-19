@@ -1,0 +1,11 @@
+---
+# tasks file for ubuntu16
+
+- include: deps.yml
+  tags: deps
+
+- include: users.yml
+  tags: users
+
+- include: services.yml
+  tags: services
