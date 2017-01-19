@@ -1,13 +1,15 @@
 ---
+- file: path=/var/log/csirtg-ufw.log owner=darknet group=darknet mode=640 state=touch
+
 - name: systemd env file
-  template: src=darknet.env.j2 dest=/etc/darknet.env mode=0660 owner="{{ app_user }}" group="{{ app_user }}"
+  template: src=darknet.env.j2 dest=/etc/darknet.env mode=0660 owner="{{ app_user }}" group="{{ app_user }}" mode=644
 
 - name: systemd services
-  template: src=csirtg-ufw.service.j2 dest=/etc/systemd/system/csirtg-ufw.service owner=root group=root mode=0755
+  template: src=csirtg-ufw.service.j2 dest=/etc/systemd/system/csirtg-ufw.service owner=root group=root mode=0644
   notify:
     - reload systemd
 
 - name: enable services at boot
-  service: name={{ item }} enabled=yes
+  service: name={{ item }} enabled=yes state=started
   with_items:
     - csirtg-ufw.service
