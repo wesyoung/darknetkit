@@ -1,5 +1,5 @@
 ---
-- user: name="{{ app_user }}" shell=/bin/bash append=yes
+- user: name="{{ app_user }}" shell=/bin/bash append=yes groups=adm
 
 - name: Ensure path has correct permissions
   file: path={{ app_user_home }} owner={{ app_user }} group={{ app_group }} mode=0750

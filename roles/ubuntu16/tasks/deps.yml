@@ -7,6 +7,7 @@
   with_items:
     - cython>=0.20
     - https://github.com/zeromq/pyzmq/archive/f37052960e1dc510ea2c1d2e69a32d727afa9d69.tar.gz#egg=pyzmq>16.0.1
-    - csirtg_indicator==0.0.0b0
-    - csirtg_smrt==0.0.0a22
-    - pyzyre==0.0.0a6
+    - csirtg_indicator=={{ indicator_version }}
+    - csirtg_smrt=={{ smrt_version }}
+    - pyzyre=={{ pyzyre_version }}
+    - tailer

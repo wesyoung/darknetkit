@@ -3,9 +3,7 @@
   template: src=darknet.env.j2 dest=/etc/darknet.env mode=0660 owner="{{ app_user }}" group="{{ app_user }}"
 
 - name: systemd services
-  copy: src={{ item }} dest=/etc/systemd/system owner=root group=root mode=0755
-  with_items:
-    - csirtg-ufw.service
+  template: src=csirtg-ufw.service.j2 dest=/etc/systemd/system/csirtg-ufw.service owner=root group=root mode=0755
   notify:
     - reload systemd
 

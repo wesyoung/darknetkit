@@ -19,6 +19,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--cpus", "2", "--ioapic", "on", "--memory", "1024" ]
   end
 
+  config.vm.network 'public_network'
+
   if File.file?(VAGRANTFILE_LOCAL)
     external = File.read VAGRANTFILE_LOCAL
     eval external

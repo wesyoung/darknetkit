@@ -6,12 +6,14 @@ Type=simple
 User={{ app_user }}
 Group={{ app_user }}
 PIDFile=/run/csirtg-ufw.pid
-ExecStart=ZYRE_GROUP={{ zyre_group }} /usr/local/bin/csirtg-ufw --client zyre -d
+ExecStart=/usr/local/bin/csirtg-ufw --client zyre -d --provider {{ smrt_provider }} --file /var/log/ufw.log
 KillMode=process
 Restart=on-failure
 KillSignal=SIGINT
 TimeoutStopSec=5
 PrivateTmp=true
+
+EnvironmentFile=-/etc/darknet.env
 
 [Install]
 WantedBy=multi-user.target
