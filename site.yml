@@ -1,10 +1,22 @@
 ---
 - name: Install bearded-avenger
-  hosts: cif
-    # http://docs.ansible.com/ansible/playbooks_environment.html
-#  environment:
-#    http_proxy: http://proxy.example.com:8080
-  sudo: true
+  hosts: localhost
+  become: True
+  vars:
+    sshd_port: 2222
+    # https://csirtg.io/signup
+    # set values in ~/.profile or alike
+    csirtg_token: "{{ lookup('env', 'CSIRTG_TOKEN') }}"
+    csirtg_user: "{{ lookup('env', 'CSIRTG_USER') }}"
+    csirtg_feed: "{{ lookup('env', 'CSIRTG_FEED') }}"
+
+  pre_tasks:
+    - name: install python
+      raw: test -e /usr/bin/python || (sudo apt -y update && sudo apt install -y python-minimal)
+
   roles:
-    - { role: ubuntu14, tags: role-ubuntu14 }
-    - { role: bearded-avenger, tags: role-bearded-avenger }
+    - { role: ubuntu16, tags: role-ubuntu16 }
+
+  tasks:
+
+
