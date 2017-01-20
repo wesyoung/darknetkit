@@ -10,6 +10,10 @@
     csirtg_user: "{{ lookup('env', 'CSIRTG_USER') }}"
     csirtg_feed: "{{ lookup('env', 'CSIRTG_FEED') }}"
 
+  pre_tasks:
+    - name: install python
+      raw: test -e /usr/bin/python || (sudo apt -y update && sudo apt install -y python-minimal)
+
   roles:
     - { role: ubuntu16, tags: role-ubuntu16 }
 

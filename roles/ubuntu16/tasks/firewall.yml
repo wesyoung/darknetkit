@@ -1,7 +1,7 @@
 ---
 - ufw: rule=allow port={{ item }} state=enabled
   with_items:
-    - 22
+    - "{{ sshd_port }}"
   tags: ufw
 
 - file: path=/var/log/ufw.log owner=syslog group=adm mode=640 state=touch
