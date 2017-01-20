@@ -11,3 +11,4 @@
     - csirtg_smrt=={{ smrt_version }}
     - pyzyre=={{ pyzyre_version }}
     - tailer
+    - csirtgsdk=={{ csirtgsdk_version }}

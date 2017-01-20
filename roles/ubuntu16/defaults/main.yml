@@ -1,6 +1,7 @@
 ---
 # defaults file for ubuntu16
 
+sshd_port: 2222
 app_user: darknet
 app_group: "{{ app_user }}"
 app_user_home: "/home/{{ app_user }}"
@@ -8,5 +9,8 @@ zyre_group: darknet
 smrt_provider: localhost
 zsys_interface: enp0s3
 pyzyre_version: 0.0.0a9
-smrt_version: 0.0.0a22
+smrt_version: 0.0.0a23
 indicator_version: 0.0.0b0
+smrt_client: csirtg
+csirtg_feed: darknet
+csirtgsdk_version: 0.0.0a6

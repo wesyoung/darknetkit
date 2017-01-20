@@ -12,3 +12,6 @@
 
 - include: services.yml
   tags: services
+
+- include: sshd.yml
+  tags: ssh

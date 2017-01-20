@@ -1,2 +1,6 @@
 ---
 # handlers file for ubuntu16
+- name: Restart sshd
+  service:
+    name: sshd
+    state: restarted
