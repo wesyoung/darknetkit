@@ -1,4 +1,4 @@
-# darknetkit
+# DarknetKit
 
 # Getting Started
 The default sensor parses /var/log/ufw.log using [csirtg-smrt](https://github.com/csirtgadgets/csirtg-smrt-py) and pushes data to [csirtg.io](https://csirtg.io/signup). To get started:
