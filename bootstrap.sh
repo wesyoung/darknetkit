@@ -2,7 +2,9 @@
 
 set -e
 
-#echo 'yes' | sudo add-apt-repository 'ppa:fkrull/deadsnakes-python2.7'
+CSIRTG_TOKEN=$CSIRTG_TOKEN
+CSIRTG_USER=$CSIRTG_USER
+CSIRTG_FEED=$CSIRTG_FEED
 
 echo 'updating apt-get tree and installing python-pip'
 sudo apt-get update && sudo apt-get install -y python2.7 python-pip python-dev git libffi-dev \

@@ -3,9 +3,12 @@
   hosts: localhost
   become: True
   vars:
-    smrt_provider: localhost
-    zyre_group: darknet
-    zsys_interface: enp0s8
+    sshd_port: 2222
+    # https://csirtg.io/signup
+    # set values in ~/.profile or alike
+    csirtg_token: "{{ lookup('env', 'CSIRTG_TOKEN') }}"
+    csirtg_user: "{{ lookup('env', 'CSIRTG_USER') }}"
+    csirtg_feed: "{{ lookup('env', 'CSIRTG_FEED') }}"
 
   roles:
     - { role: ubuntu16, tags: role-ubuntu16 }
