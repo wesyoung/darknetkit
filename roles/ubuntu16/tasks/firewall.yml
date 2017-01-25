@@ -1,7 +1,17 @@
 ---
+- stat: path=/vagrant
+  register: v
+
 - ufw: rule=allow port={{ item }} state=enabled
   with_items:
     - "{{ sshd_port }}"
   tags: ufw
+  when: v.stat.exists == false
+
+- ufw: rule=allow port={{ item }} state=enabled
+  with_items:
+    - 22
+  tags: ufw
+  when: v.stat.exists == true
 
 - file: path=/var/log/ufw.log owner=syslog group=adm mode=640 state=touch
