@@ -13,3 +13,10 @@
   service: name={{ item }} enabled=yes state=started
   with_items:
     - csirtg-ufw.service
+
+  # ufw logs are rotated weekly
+- name: setup crond restart every week
+  cron:
+    name: "csirtg-ufw restart"
+    hour: 6
+    minute: 27
